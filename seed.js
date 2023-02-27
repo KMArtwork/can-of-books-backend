@@ -23,6 +23,8 @@ seed = async () => {
     status: 'Read',
   })
 
+  console.log('seeding data');
+
   mongoose.disconnect();
 }
 
