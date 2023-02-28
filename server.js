@@ -16,9 +16,16 @@ mongoose.connect(process.env.DATABASE_URL);
 
 app.get('/books', async (request, response) => {
 
-  // axios
-  //   .get(process.env.DATABASE_URL)
-
+  Book
+    .find()
+    .then(res => {
+      console.log('found books');
+      response.send(res);
+    })
+    .catch(err => {
+      console.log('error querying database');
+      response.send(err);
+    })
 })
 
 app.listen(PORT, () => console.log(`listening on ${PORT}`));
