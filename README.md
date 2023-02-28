@@ -2,13 +2,30 @@
 
 **Author**: Kawika Miller & Reed Vogt
 
-**Version**: 1.0.1 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.2 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 This app will allow a user to keep a record of various books that they enjoy, or books that that want to read in the future, and allows the user to view/add/remove them as they please. 
 
 ## Getting Started
-If running this app locally it will require both the backend and frontend project folders. Both the backend and the frontend need to be started by running the command 'npm start'.
+**If running this app locally:**
+  - Requires both the backend and frontend project folders
+  - Dependencies will need to be installed
+    - express
+    - cors
+    - dotenv
+    - mongoose
+    - nodemon (optional) 
+  - Both the backend and the frontend need to be started by running the command `npm start`.
+    - If nodemon has been installed, start the server by running the command `npx nodemon server.js`
+  - Add a `.env` file to project folder, should include:
+    - PORT
+      - suggest using 3001 (e.g. `PORT=3001`)
+    - DATABASE_URL
+      - If you are a Code Fellows instructor or TA you should have access to the database url
+      - If you are not then get your own database url >:)
+**If running this app from deployed site**
+- Everything should work as is!
 
 ## Architecture
 Node.js, Express.js, Mongoose, MongoDB, CORS, dotenv
@@ -18,14 +35,21 @@ Node.js, Express.js, Mongoose, MongoDB, CORS, dotenv
 
 - 2023-27-02 => 1:30-3:15PM : Create book schema, seed data to database
 
-- 2023-27-02 => 3:15-4:07PM : Handle '/books' route and return database info | *only works locally?
+- 2023-27-02 => 3:15-4:07PM : Successfully handle GET requests to '/books' route | ~~*only works locally?~~
 
 - 2023-27-02 => 4:07-4:48PM : Deployed server will return database info now | *had to remove 'async' keyword in the .get() method's callback function
+
+- 2023-28-02 => 1:12-1:30PM : Successfully handle POST requests to '/books' route
+
+- 2023-28-02 => 1:33-2:05PM : Successfully handle DELETE requests to '/books' route
 
 
 ## Estimates
 
-### **Task 01: Set Up Repos
+### Lab 11
+---
+
+#### **Task 01: Set Up Repos**
 
 Estimate of time needed to complete: 15m
 
@@ -35,7 +59,7 @@ Finish time: 1:30PM
 
 Actual time needed to complete: 12m
 
-### **Task 02: Storage**
+#### **Task 02: Storage**
 
 Estimate of time needed to complete: 80m
 
@@ -45,12 +69,47 @@ Finish time: 4:48PM
 
 Actual time needed to complete: 198m
 
-### **Task 03: Book Component**
+#### **Task 03: Book Component**
 
 *this info is on the front end read me*
 
+---
+---
+
+### Lab 12
+---
+
+#### **Task 01: Create**
+
+Estimate of time needed to complete: 45m
+
+Start time: 1:08PM
+
+Finish time: 1:30PM
+
+Actual time needed to complete: 22m
+
+*this timeframe is strictly for the backend stuff
+
+#### **Task 02: Delete**
+
+Estimate of time needed to complete: 45m
+
+Start time: 1:33PM
+
+Finish time: 2:05PM
+
+Actual time needed to complete: 32m
+
+*this timeframe is strictly for the backend stuff
+
+---
+---
+
 ## Credit and Collaborations
 Reed Vogt | https://github.com/reedoooo
+
+---
 
 ### Logistical
 
