@@ -24,6 +24,7 @@ This app will allow a user to keep a record of various books that they enjoy, or
     - DATABASE_URL
       - If you are a Code Fellows instructor or TA you should have access to the database url
       - If you are not then get your own database url >:)
+      
 **If running this app from deployed site**
 - Everything should work as is!
 
