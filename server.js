@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 mongoose.connect(process.env.DATABASE_URL);
 
-app.get('/books', async (request, response) => {
+app.get('/books', (request, response) => {
 
   Book
     .find()
