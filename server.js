@@ -44,7 +44,7 @@ app.post('/books', (request, response) => {
           console.log('book successfully created, adding to database');
           response.status(202).send(res);
         })
-        .catch(err => response.status(500).send(`${Err} | 'Error creating book and adding to database`))
+        .catch(err => response.status(500).send(`${err} | 'Error creating book and adding to database`))
   }
 
 
