@@ -21,7 +21,7 @@ app.post('/books', (request, response) => {
 
   if (!request.body.title || !request.body.description) {
     console.log('request missing information');
-    response.status(40).send('Error | Request is not sending the proper information to the server')
+    response.status(404).send('Error | Request is not sending the proper information to the server')
   } else {
       Book
         .create(request.body)
