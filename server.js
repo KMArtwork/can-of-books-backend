@@ -14,22 +14,7 @@ const PORT = process.env.PORT || 3001;
 
 mongoose.connect(process.env.DATABASE_URL);
 
-app.get('/books', (request, response) => {
-
-  console.log('get request received from client')
-
-  Book
-    .find()
-    .then(res => {
-      console.log('found books in database');
-      response.send(res);
-    })
-    .catch(err => {
-      console.log('error querying database');
-      response.status(500).send(err);
-    })
-})
-
+// CREATE
 app.post('/books', (request, response) => {
 
   console.log('post request received from client');
@@ -50,6 +35,47 @@ app.post('/books', (request, response) => {
 
 })
 
+// READ
+app.get('/books', (request, response) => {
+
+  console.log('get request received from client')
+
+  Book
+    .find()
+    .then(res => {
+      console.log('found books in database');
+      response.send(res);
+    })
+    .catch(err => {
+      console.log('error querying database');
+      response.status(500).send(err);
+    })
+})
+
+//UPDATE
+app.put('/books/:id', (request, response) => {
+
+  console.log('put request received from client')
+
+  if (!request.body.title || !request.body.description) {
+    console.log('Error updating database | invalid form entry')
+    response.status(404).send('Error | You need to supply an updated title and description')
+  } else {
+      Book
+      .findByIdAndUpdate(request.params.id, request.body, {new: true})
+      .then(res => {
+        console.log('Successfully updated book');
+        response.status(202).send(res);
+      })
+      .catch(err => {
+        console.log('Error updating book');
+        response.status(404).send(`${err} | Unable to update database`);
+      })
+  }
+})
+
+
+// DELETE
 app.delete('/books/:id', (request, response) => {
 
   console.log('delete request received from client')
