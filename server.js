@@ -14,6 +14,28 @@ const PORT = process.env.PORT || 3001;
 
 mongoose.connect(process.env.DATABASE_URL);
 
+// CREATE
+app.post('/books', (request, response) => {
+
+  console.log('post request received from client');
+
+  if (!request.body.title || !request.body.description) {
+    console.log('request missing information');
+    response.status(404).send('Error | Request is not sending the proper information to the server')
+  } else {
+      Book
+        .create(request.body)
+        .then(res => {
+          console.log('book successfully created, adding to database');
+          response.status(202).send(res);
+        })
+        .catch(err => response.status(500).send(`${err} | 'Error creating book and adding to database`))
+  }
+
+
+})
+
+// READ
 app.get('/books', (request, response) => {
 
   console.log('get request received from client')
@@ -30,26 +52,30 @@ app.get('/books', (request, response) => {
     })
 })
 
-app.post('/books', (request, response) => {
+//UPDATE
+app.put('/books/:id', (request, response) => {
 
-  console.log('post request received from client');
+  console.log('put request received from client')
 
   if (!request.body.title || !request.body.description) {
-    console.log('request missing information');
-    response.status(40).send('Error | Request is not sending the proper information to the server')
+    console.log('Error updating database | invalid form entry')
+    response.status(404).send('Error | You need to supply an updated title and description')
   } else {
       Book
-        .create(request.body)
-        .then(res => {
-          console.log('book successfully created, adding to database');
-          response.status(202).send(res);
-        })
-        .catch(err => response.status(500).send(`${err} | 'Error creating book and adding to database`))
+      .findByIdAndUpdate(request.params.id, request.body, {new: true})
+      .then(res => {
+        console.log('Successfully updated book');
+        response.status(202).send(res);
+      })
+      .catch(err => {
+        console.log('Error updating book');
+        response.status(404).send(`${err} | Unable to update database`);
+      })
   }
-
-
 })
 
+
+// DELETE
 app.delete('/books/:id', (request, response) => {
 
   console.log('delete request received from client')
