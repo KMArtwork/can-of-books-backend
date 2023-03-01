@@ -34,13 +34,20 @@ app.post('/books', (request, response) => {
 
   console.log('post request received from client');
 
-  Book
-    .create(request.body)
-    .then(res => {
-      console.log('book successfully created, adding to database');
-      response.status(202).send(res);
-    })
-    .catch(err => response.status(500).send(`${Err} | 'Error creating book and adding to database`))
+  if (!request.body.title || !request.body.description) {
+    console.log('request missing information');
+    response.status(40).send('Error | Request is not sending the proper information to the server')
+  } else {
+      Book
+        .create(request.body)
+        .then(res => {
+          console.log('book successfully created, adding to database');
+          response.status(202).send(res);
+        })
+        .catch(err => response.status(500).send(`${Err} | 'Error creating book and adding to database`))
+  }
+
+
 })
 
 app.delete('/books/:id', (request, response) => {
