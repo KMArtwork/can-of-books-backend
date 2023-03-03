@@ -2,7 +2,7 @@
 
 **Author**: Kawika Miller & Reed Vogt
 
-**Version**: 1.0.2 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.3 (increment the patch/fix version number if you make more commits past your first submission)
 
 ## Overview
 This app will allow a user to keep a record of various books that they enjoy, or books that that want to read in the future, and allows the user to view/add/remove them as they please. 
@@ -43,6 +43,8 @@ Node.js, Express.js, Mongoose, MongoDB, CORS, dotenv
 - 2023-28-02 => 1:12-1:30PM : Successfully handle POST requests to '/books' route
 
 - 2023-28-02 => 1:33-2:05PM : Successfully handle DELETE requests to '/books' route
+
+- 2023-28-02 => 1:00 - 1:30PM : Successfully handle PUT requests to '/books' route
 
 
 ## Estimates
@@ -101,6 +103,24 @@ Start time: 1:33PM
 Finish time: 2:05PM
 
 Actual time needed to complete: 32m
+
+*this timeframe is strictly for the backend stuff
+
+---
+---
+
+### Lab 13
+---
+
+#### **Task 01: Update**
+
+Estimate of time needed to complete: 45m
+
+Start time: 1:00PM
+
+Finish time: 1:29PM
+
+Actual time needed to complete: 29m
 
 *this timeframe is strictly for the backend stuff
 
