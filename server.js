@@ -3,12 +3,14 @@
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
+const authVerify = require('./auth/authVerify');
 const Book = require('./models/book');
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(authVerify);
 
 const PORT = process.env.PORT || 3001;
 
